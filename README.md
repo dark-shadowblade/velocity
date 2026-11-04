@@ -1,74 +1,67 @@
 
 # ⚡ Velocity — Video Speed Controller
 
-**Control video playback at your pace.**
-
-Velocity is a Chrome extension designed to make video speed control simple, precise, and convenient. Use the floating controller, quick presets, and keyboard shortcuts to adjust playback without interrupting your workflow.
+Control video playback speed with precision. Velocity is a lightweight Chrome extension featuring a floating controller, quick speed presets, and convenient keyboard shortcuts.
 
 ## ✨ Features
 
-- 🎚️ **Speed control:** Adjust playback from 0.25× to 16×.
-- ⚡ **Quick presets:** Switch between common playback speeds instantly.
-- 🎯 **Fine adjustment:** Change speed in increments of 0.05× or 0.1×.
-- ⌨️ **Keyboard shortcuts:** Control playback without constantly using the mouse.
-- 🪟 **Floating interface:** Drag, minimize, or hide the controller.
-- 👆 **Click outside to hide:** Dismiss the panel while playback continues.
-- 💾 **Remember speed:** Reuse your selected speed across pages.
-- 🎨 **Modern UI:** Dark theme with a clean, compact design.
-- 🎬 **HTML5 video support:** Works with accessible HTML5 video elements.
+- ⚡ Playback speed control from 0.25× to 16×
+- 🎚️ Quick speed presets
+- 🎯 Fine-grained speed adjustments
+- 🪟 Floating, draggable controller
+- 📌 Minimize and hide controls
+- ⌨️ Keyboard shortcuts
+- 🎨 Modern dark interface
+- 🎬 Support for HTML5 video elements
+
+## 📥 Installation
+
+1. Download the latest Velocity extension ZIP file.
+2. Extract the ZIP file to a folder on your computer.
+3. Open Google Chrome.
+4. Navigate to `chrome://extensions`.
+5. Enable **Developer mode** using the toggle in the top-right corner.
+6. Click **Load unpacked**.
+7. Select the extracted Velocity folder containing `manifest.json`.
+8. Pin Velocity to your Chrome toolbar for easy access.
+9. Open a webpage containing an HTML5 video and launch Velocity.
 
 ## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
 |---|---|
-| `[` | Decrease speed by 0.1× |
-| `]` | Increase speed by 0.1× |
-| `+` | Increase speed by 0.05× |
-| `-` | Decrease speed by 0.05× |
-| `\` | Reset speed to 1× |
-| `Alt + V` | Show or hide the controller |
+| `[` | Decrease playback speed |
+| `]` | Increase playback speed |
+| `+` | Increase speed by a small step |
+| `-` | Decrease speed by a small step |
+| `\` | Reset playback speed to 1× |
+| `Alt + V` | Toggle the controller |
 
-*Shortcuts may depend on the active page and browser focus.*
+*Shortcut availability may vary depending on the active webpage and browser focus.*
 
-## 📥 Install in Chrome
+## 🛠️ Built With
 
-Until Velocity is published on the Chrome Web Store, install it manually:
+- JavaScript
+- HTML5
+- CSS3
+- Chrome Extension Manifest V3
 
-1. Download the extension ZIP from the website.
-2. Extract the ZIP into a folder.
-3. Open `chrome://extensions` in Chrome.
-4. Enable **Developer mode**.
-5. Click **Load unpacked**.
-6. Select the extracted folder containing `manifest.json`.
-7. Open a webpage with a video and click the Velocity extension icon.
+## 🌐 Compatibility
 
-## 🌐 Website
+Velocity is designed for Google Chrome and compatible Chromium-based browsers that support Manifest V3.
 
-Visit the GitHub Pages website for the project overview, features, and installation instructions.
+Some protected players, embedded videos, and browser-restricted pages may not support playback control.
 
-Replace this placeholder with your published URL:
+## 🔒 Privacy
 
-`https://YOUR-USERNAME.github.io/velocity-extension/`
+Velocity is designed to control video playback locally in the browser. Refer to the extension's source code and permissions for details about its actual behavior.
 
-## ⚠️ Compatibility
+## 🚀 Project Goals
 
-- Designed for Google Chrome and Chromium-based browsers that support Manifest V3.
-- Some protected video players, browser-internal pages, and cross-origin embedded players may restrict playback control.
-- Playback speeds above a video's supported range may not work reliably on every website.
-- Manual installation requires Developer mode.
+- Provide fast and convenient video speed control.
+- Keep the interface simple and unobtrusive.
+- Make playback adjustments accessible through keyboard shortcuts.
+- Improve the viewing experience for learning and everyday browsing.
 
-## 🚀 Future Plans
 
-- Chrome Web Store publication
-- Additional appearance customization
-- More playback controls
-- Improved compatibility and performance
-
-## 📄 License
-
-Choose a license before distributing or accepting contributions to this project. If you want others to reuse and modify the code, consider an open-source license such as MIT.
-
----
-
-**Velocity — Video speed, on your terms.** ⚡
-
+**Velocity — Watch at your speed. ⚡**
