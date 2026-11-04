@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11111b">
+  <meta name="description" content="Velocity — a clean, powerful playback speed controller for HTML5 videos in Chrome.">
+  <title>Velocity — Video Speed Controller</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0d0d14;--panel:#171722;--line:#ffffff17;--muted:#a6a5bd;--text:#f7f6ff;--purple:#a99aff;--purple2:#7865e8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#40336d44,transparent 36%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.4px}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#c4baff,var(--purple2));color:#171326;font-size:23px;font-weight:950;box-shadow:0 8px 30px #8c7bff30}
+    .navlink{font-size:14px;color:var(--muted)}.hero{padding:88px 0 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #b1a3ff45;border-radius:999px;padding:6px 12px;color:#d0c7ff;font-size:12px;background:#a99aff0e}
+    .dot{width:7px;height:7px;border-radius:50%;background:#8ce7b8;box-shadow:0 0 12px #8ce7b877}
+    h1{font-size:clamp(44px,6vw,72px);line-height:1.02;letter-spacing:-3.5px;margin:22px 0 20px;font-weight:850}h1 span{background:linear-gradient(100deg,#e2dcff,#a99aff 55%,#7e6de9);background-clip:text;color:transparent}
+    .lead{color:#b7b5ca;font-size:18px;max-width:550px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;padding:13px 18px;font-weight:750;font-size:14px;border:1px solid var(--line);transition:transform .15s,filter .15s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(135deg,#c1b6ff,#8c7aff);color:#171326;border-color:transparent;box-shadow:0 10px 30px #8b7aff26}.secondary{background:#ffffff08}
+    .smallnote{font-size:12px;color:var(--muted);margin-top:13px}
+    .mock-wrap{position:relative;min-height:340px;display:grid;place-items:center}.glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#8d7bff25;filter:blur(60px)}
+    .mock{position:relative;width:min(100%,340px);padding:0;border:1px solid #ffffff25;border-radius:19px;overflow:hidden;background:#171722;box-shadow:0 25px 90px #0008,0 0 0 7px #ffffff04;transform:rotate(2deg)}
+    .mockhead{display:flex;align-items:center;gap:10px;padding:15px;border-bottom:1px solid var(--line);background:linear-gradient(110deg,#a99aff20,transparent)}
+    .mockicon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--purple);color:#1c1731;font-size:21px;font-weight:900}.mocktitle{font-weight:800}.mocksub{font-size:10px;color:var(--muted);letter-spacing:.5px}
+    .speedarea{padding:20px 17px}.speedrow{display:flex;align-items:center;justify-content:space-between}.speednum{font-size:39px;font-weight:850;letter-spacing:-1.8px}.chip{font-size:10px;background:#a99aff20;color:#d4ccff;padding:5px 8px;border-radius:7px}
+    .track{height:5px;background:#ffffff17;border-radius:99px;margin:14px 0 7px;overflow:hidden}.fill{height:100%;width:39%;background:linear-gradient(90deg,#8270ed,#c4baff);border-radius:99px}.range-label{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}
+    .mockbuttons{display:flex;gap:7px;margin-top:16px}.mockbuttons span{flex:1;text-align:center;padding:8px 3px;background:#ffffff09;border:1px solid var(--line);border-radius:8px;font-size:11px}
+    .preset-area{padding:14px 17px;border-top:1px solid var(--line)}.preset-title{font-size:10px;color:var(--muted);letter-spacing:.8px}.presets{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}.presets span{padding:7px 0;text-align:center;border:1px solid var(--line);border-radius:8px;font-size:11px}.presets .on{border-color:#a99aff;color:#d4ccff;background:#a99aff20}
+    .features{padding:40px 0 80px}.section-title{text-align:center;font-size:32px;letter-spacing:-1px;margin:0 0 12px}.section-lead{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 30px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#ffffff08,#ffffff03)}.ico{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:#a99aff16;color:#c7bdff;font-size:19px}.card h3{font-size:16px;margin:15px 0 7px}.card p{font-size:13px;color:var(--muted);margin:0}
+    .install{padding:32px;border:1px solid #a99aff35;background:linear-gradient(120deg,#a99aff0e,#ffffff04);border-radius:20px;margin-bottom:70px}.install h2{margin:0 0 8px;font-size:26px;letter-spacing:-.7px}.install p{color:var(--muted);margin-top:0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.step strong{display:block;margin-bottom:6px}.step span{font-size:13px;color:var(--muted)}
+    .keyrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px 0 0}.key{border:1px solid var(--line);border-bottom-width:2px;background:#ffffff08;padding:7px 10px;border-radius:8px;font-size:12px;color:#d9d7e9}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;padding:60px 0 40px;gap:25px}h1{letter-spacing:-2.5px}.mock-wrap{min-height:320px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.install{padding:22px}.section-title{text-align:left}.section-lead{text-align:left}.hero .lead{font-size:16px}}
+  </style>
+</head>
+<body>
+  <nav class="wrap">
+    <a class="brand" href="#"><span class="logo">ϟ</span><span>Velocity</span></a>
+    <a class="navlink" href="#features">Features&nbsp; ↘</a>
+  </nav>
+  <main>
+    <section class="hero wrap">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Playback speed, under your control</div>
+        <h1>Watch at<br><span>your speed.</span></h1>
+        <p class="lead">A sleek, floating speed controller for HTML5 videos. Jump between presets, fine-tune playback, and keep your controls right where you need them.</p>
+        <div class="actions">
+          <a class="btn primary" id="installButton" href="./downloads/VelocityExtension.zip" download>↓ &nbsp; Download for Chrome</a>
+          <a class="btn secondary" href="#install">How to install&nbsp; ↘</a>
+        </div>
+        <p class="smallnote" id="installNote">Manual installation is currently required. One-click installation becomes available after the extension is published on the Chrome Web Store.</p>
+      </div>
+      <div class="mock-wrap" aria-label="Velocity speed controller preview">
+        <div class="glow"></div>
+        <div class="mock">
+          <div class="mockhead"><div class="mockicon">ϟ</div><div><div class="mocktitle">Velocity</div><div class="mocksub">VIDEO SPEED CONTROL</div></div></div>
+          <div class="speedarea"><div class="speedrow"><div class="speednum">1.75×</div><span class="chip">CUSTOM</span></div><div class="track"><div class="fill"></div></div><div class="range-label"><span>0.25×</span><span>16×</span></div><div class="mockbuttons"><span>− 0.1×</span><span>Reset 1×</span><span>+ 0.1×</span></div></div>
+          <div class="preset-area"><div class="preset-title">QUICK SPEEDS</div><div class="presets"><span>0.5×</span><span>0.75×</span><span>1×</span><span>1.25×</span><span>1.5×</span><span class="on">1.75×</span><span>2×</span><span>3×</span></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="features wrap" id="features">
+      <h2 class="section-title">Everything you need. Nothing in the way.</h2>
+      <p class="section-lead">A compact controller designed to make video playback faster, slower, and easier to manage.</p>
+      <div class="cards">
+        <article class="card"><div class="ico">↗</div><h3>Fine speed control</h3><p>Choose a preset or use the slider for speeds from 0.25× up to 16×.</p></article>
+        <article class="card"><div class="ico">⌘</div><h3>Keyboard shortcuts</h3><p>Adjust playback without reaching for the mouse. Shortcuts avoid typing fields.</p></article>
+        <article class="card"><div class="ico">◫</div><h3>Floating, movable UI</h3><p>Drag the panel, minimize it, or click outside to hide it while playback continues.</p></article>
+      </div>
+      <div class="keyrow"><span class="key">[ / ] · ±0.1×</span><span class="key">+ / − · ±0.05×</span><span class="key">\ · Reset</span><span class="key">Alt + V · Show / hide</span></div>
+    </section>
+    <section class="wrap" id="install">
+      <div class="install">
+        <h2>Get Velocity running in Chrome</h2>
+        <p>Until the Chrome Web Store listing is published, install the downloaded extension manually.</p>
+        <div class="steps">
+          <div class="step"><strong>01 · Download</strong><span>Click “Download for Chrome” above and extract the ZIP file.</span></div>
+          <div class="step"><strong>02 · Open extensions</strong><span>Visit <code>chrome://extensions</code> and turn on Developer mode.</span></div>
+          <div class="step"><strong>03 · Load unpacked</strong><span>Click “Load unpacked” and select the extracted folder containing <code>manifest.json</code>.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span>© <span id="year"></span> Velocity · Video Speed Controller</span><span>Built for Chrome · HTML5 video support</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // For one-click install, set this to the published Chrome Web Store listing URL.
+    const chromeWebStoreUrl = '';
+    if (chromeWebStoreUrl) {
+      const button = document.getElementById('installButton');
+      button.href = chromeWebStoreUrl;
+      button.removeAttribute('download');
+      button.textContent = '＋  Add to Chrome';
+      document.getElementById('installNote').textContent = 'Install directly from the official Chrome Web Store.';
+    }
+  </script>
+</body>
+</html>
