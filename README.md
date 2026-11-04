@@ -1,4 +1,4 @@
-# Velocity GitHub Pages site
+# Velocity 
 
 This folder is a ready-to-upload GitHub Pages landing page for the Velocity Chrome extension.
 
